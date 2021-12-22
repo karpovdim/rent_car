@@ -16,8 +16,8 @@ public class UserService implements Service<User> {
         try {
             final var user = userDao.findById(id);
             return user.orElseThrow(() -> new NotFoundException(id));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);  //TODO: CREATE CUSTOM EXCEPTION
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);  //TODO: CREATE CUSTOM EXCEPTION
         }
     }
 

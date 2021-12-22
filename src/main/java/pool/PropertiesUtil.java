@@ -25,8 +25,8 @@ public final class PropertiesUtil {
                 .getClassLoader()
                 .getResourceAsStream(PATH_PROPERTIES)) {
             PROPERTIES.load(inputStream);
-        } catch (IOException e) {
-            throw new RuntimeException(e);//TODO: CREATE CUSTOM EXCEPTION
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);//TODO: CREATE CUSTOM EXCEPTION
         }
     }
 }

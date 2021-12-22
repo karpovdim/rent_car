@@ -55,8 +55,8 @@ public class ConnectionManager {
         try {
             Connection connection = pool.take();
             return connection;
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e); //TODO: CREATE CUSTOM EXCEPTION
+        } catch (InterruptedException ex) {
+            throw new RuntimeException(ex); //TODO: CREATE CUSTOM EXCEPTION
         }
     }
 
@@ -64,8 +64,8 @@ public class ConnectionManager {
         for (Connection connection : sourceConnection) {
             try {
                 connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e); //TODO: CREATE CUSTOM EXCEPTION
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex); //TODO: CREATE CUSTOM EXCEPTION
             }
         }
     }
@@ -74,8 +74,8 @@ public class ConnectionManager {
         if (connection == null) {
             try {
                 connection = DriverManager.getConnection(URL, USER, PASS);
-            } catch (SQLException e) {
-                throw new RuntimeException(e); //TODO: CREATE CUSTOM EXCEPTION
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex); //TODO: CREATE CUSTOM EXCEPTION
             }
         }
         return connection;
